@@ -25,22 +25,29 @@ public class subArraySumKlength {
 
     // optimal soln
     static int subArray(int[] arr, int k) {
+
+        //intial sum as we only have one element so its sum will the element itself
         int sum = arr[0];
+
+        //intial len
         int len = 0;
+
+        //two pointers both on 0 index
         int right = 0;
         int left = 0;
 
+        //till right is lesser than array length
         while (right < arr.length) {
-            while (left<=right && sum > k) {
-                sum -= arr[left];
-                left++;
+            while (left<=right && sum > k) { //if sum increases we need to trim the array
+                sum -= arr[left]; //decrease the array by arr[left] elemetn
+                left++;           //increment left
             }
-            if(sum==k){
+            if(sum==k){ //if sum == k find max len
                 len = Math.max(len,right-left+1);
             }
-            right++;
+            right++; //increment right
             if (right < arr.length)
-                sum += arr[right];
+                sum += arr[right]; //keep adding right in sum
 
         }
         return len;
