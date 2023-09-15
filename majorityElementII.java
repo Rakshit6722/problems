@@ -9,6 +9,7 @@ public class majorityElementII {
         System.out.println(majorityElement(arr));
     }
 
+    //brute force
     public static List<Integer> majorityElement(int[] nums) {
         ArrayList<Integer> ans = new ArrayList<>();
         int n = nums.length;
@@ -34,5 +35,7 @@ public class majorityElementII {
         }
         return ans;
     }
+
+    //optimal approach - pending
 
 }
