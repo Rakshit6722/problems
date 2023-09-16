@@ -13,12 +13,36 @@ public class mergeArrayInPlace {
     }
 
     //better approach 
-    public static void merge(int[] nums1, int m, int[] nums2, int n) {
-        int i = m; //we have to append in nums1 from mth index
-        for (int j = 0; j < n; j++) {
-            nums1[i++] = nums2[j]; //appending in nums1 till nums2 length starting from mth index
-        }
-        Arrays.sort(nums1); //sort it
+    // public static void merge(int[] nums1, int m, int[] nums2, int n) {
+    //     int i = m; //we have to append in nums1 from mth index
+    //     for (int j = 0; j < n; j++) {
+    //         nums1[i++] = nums2[j]; //appending in nums1 till nums2 length starting from mth index
+    //     }
+    //     Arrays.sort(nums1); //sort it
 
+    // }
+
+    //Optimal appraoch
+    public static void merge(int[] nums1, int m, int[] nums2, int n) {
+
+        //intialize three pointers
+        int p1 = m-1; //point at the last valid element of nums1
+        int p2 = n-1; //point at the last valid element of nums2
+        int pM = m+n-1; //point at the last available element of nums1
+
+        while(p2>=0){
+            if(p1>0 && nums1[p1]>nums2[p2]){
+                nums1[pM] = nums1[p1];
+                pM--;
+                p1--;
+            }
+            else{
+                nums1[pM] = nums2[p2];
+                pM--;
+                p2--;
+            }
+        }
+
+        
     }
 }
