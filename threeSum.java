@@ -58,7 +58,7 @@ public class threeSum {
     // }
 
     // Optimal approach - two pointer approach
-    public List<List<Integer>> threeSum(int[] nums) {
+    public static List<List<Integer>> threeSum(int[] nums) {
         List<List<Integer>> ans = new ArrayList();
 
         Arrays.sort(nums); //sort
